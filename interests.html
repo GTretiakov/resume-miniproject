@@ -201,7 +201,25 @@
                     lng: -33.134766
                 }
             });
-        }
+            var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var locations = [
+                {lat: 40.785091, lng: -73.968285},
+                {lat: 43.575126933969656, lng: -79.59347514234379},
+                {lat: 43.64904455905912, lng: -79.34243210005013}
+            ];
+            var markers = locations.map(function(location, i) {
+                return new google.maps.Marker({
+                    position: location,
+                    label: labels[i % labels.length]
+                });
+
+            });
+            var MarkerCluster = new MarkerClusterer(map, markers, {
+            imagePath:
+            "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+            });        
+             
+        }    
     </script>
     
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
